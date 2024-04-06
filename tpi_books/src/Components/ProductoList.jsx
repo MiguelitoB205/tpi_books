@@ -7,7 +7,7 @@ import { useState } from 'react';
 
     const  {id, nombre, imagen, titulo, autor, categoria, precio, resena} = objeto
      
-   
+  
 
     const handleToggleFavorito = (objeto) => {
       // Verificar si el objeto ya está en favoritos
@@ -23,7 +23,7 @@ import { useState } from 'react';
       }
   
       // Actualizar localStorage
-      localStorage.setItem('favoritos', JSON.stringify(favoritos));
+      localStorage.setItem('favoritos',favoritos);
     };
     
   
@@ -31,18 +31,16 @@ import { useState } from 'react';
     return(
 <div>
      <div className="container-items" >
-        <div style={{backgroundColor: 'skyblue', borderRadius: '10px', margin: '50px'}}>
+        <div style={{backgroundColor: 'skyblue', borderRadius: '10px', margin: '35px'}}>
             <Link to={'/productoDetalle/' + id}>
-        <h1 style={{padding: '29px'}}>{nombre}</h1>
-            <img src={imagen} width='150px' height='150px' style={{margin: '34px'}}/>
-            <p><strong>Título: </strong> {titulo}</p>
-            <p><strong> Autor: </strong> {autor}</p>
-            <p><strong>Categoría: </strong> {categoria}</p>
-            <p><strong>Precio: </strong>{precio}</p>
-            <p><strong>Descripción: </strong>{resena}</p>
+        <h1 style={{padding: '29px', color: 'black'}}>{nombre}</h1>
+            <img src={imagen} width='150px' height='150px' style={{margin: '47px'}}/>
+           
+            <h2 style={{ padding:'30px', color: 'black'}}><strong>{precio}</strong></h2>
+            
             
             </Link>
-            <button style={{ margin: '35px' }} onClick={() => handleToggleFavorito(objeto)}>
+            <button style={{ margin: '35px', alignContent: 'center'}} onClick={() => handleToggleFavorito(objeto)}>
         <FontAwesomeIcon icon={faHeart} style={{ width: '50px', height: '50px', color: 'red', backgroundColor: 'pink' }} />
       </button>
             </div>

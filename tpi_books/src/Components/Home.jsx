@@ -146,19 +146,17 @@ const Home = ()=>{
           </div>
          
         
-            <h2 style={{ color: 'darkblue', fontSize: '45px' }}>Tus libros favoritos</h2>
+            <h2 style={{ color: 'darkblue', fontSize: '45px', margin: '56px' }}>Tus libros favoritos</h2>
           <div>
             <ul style={{ display: 'grid', gridTemplateColumns: '33% 33% 33%' }}>
               
-              {favoritos.map(favorito => (
-                <ul style={{backgroundColor: 'lightblue', margin: '30px', padding: '35px', borderRadius: '25px'}} key={favorito.id}>
-                  <h3 style={{margin: '29px', color: 'darkblue'}}>{favorito.nombre}</h3>
-                  <p><img src={favorito.imagen} alt="" width='150px' height='160px' /></p>
-                  <p><strong>Título: </strong>{favorito.titulo}</p>
-                  <p><strong>Autor: </strong>{favorito.autor}</p>
-                  <p><strong>Categoría: </strong>{favorito.categoria}</p>
-                  <p>{favorito.precio}</p>
-                  <p><strong>Descripción: </strong> {favorito.resena}</p>
+              {favoritos?.map(favorito => (
+                <ul style={{backgroundColor: 'lightblue', padding: '1px 20px 5px 50px' , margin: '30px', borderRadius: '25px'}} key={favorito.id}>
+                  <h1 style={{margin: '15px', color: 'darkblue'}}>{favorito.nombre}</h1>
+                  <p style={{justifyContent: 'center'}}><img src={favorito.imagen} alt="" width='150px' height='160px' /></p>
+                 
+                  <h3 style={{margin: '23px'}}><strong>{favorito.precio}</strong></h3>
+                  
                  
                   <ul>
                
