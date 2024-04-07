@@ -145,7 +145,8 @@ const ProductoDetalle= () =>{
       <Header />
       <div style={{padding: '50px'}}>
         {libroSeleccionado ? (
-          <div style={{backgroundColor: 'violet', fontSize: '20px', padding: '50px', borderRadius: '20px'}}> 
+          <div style={{backgroundColor: 'lightblue', fontSize: '20px', marginRight: '100px',
+          marginLeft:'50px', paddingLeft: '200px', paddingBottom: '20px', borderRadius: '20px'}}> 
             <h1 style={{padding:'29px', color: 'darkblue'}}> {libroSeleccionado.nombre}</h1>
             <img src={libroSeleccionado.imagen} alt={libroSeleccionado.nombre}
             width='300px' height='200px' />

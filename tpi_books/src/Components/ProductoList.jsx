@@ -23,24 +23,24 @@ import { useState } from 'react';
       }
   
       // Actualizar localStorage
-      localStorage.setItem('favoritos',favoritos);
+      localStorage.setItem('favoritos',JSON.stringify(favoritos));
     };
     
   
 
     return(
-<div>
-     <div className="container-items" >
-        <div style={{backgroundColor: 'skyblue', borderRadius: '10px', margin: '35px'}}>
+<div >
+     <div style={{display: 'flex', flexDirection: 'row'}} className="container-items" >
+        <div style={{backgroundColor: 'skyblue', borderRadius: '10px', marginLeft: '35px', marginTop: '23px', marginBottom: '29px'}}>
             <Link to={'/productoDetalle/' + id}>
-        <h1 style={{padding: '29px', color: 'black'}}>{nombre}</h1>
-            <img src={imagen} width='150px' height='150px' style={{margin: '47px'}}/>
+        <h1 style={{padding: '5px', color: 'black', margin: '3px'}}>{nombre}</h1>
+            <img src={imagen} width='150px' height='150px' style={{margin: '13px'}}/>
            
-            <h2 style={{ padding:'30px', color: 'black'}}><strong>{precio}</strong></h2>
+            <h2 style={{ padding:'15px', margin: '10px' ,color: 'black'}}><strong>{precio}</strong></h2>
             
             
             </Link>
-            <button style={{ margin: '35px', alignContent: 'center'}} onClick={() => handleToggleFavorito(objeto)}>
+            <button style={{ margin: '15px', alignContent: 'center'}} onClick={() => handleToggleFavorito(objeto)}>
         <FontAwesomeIcon icon={faHeart} style={{ width: '50px', height: '50px', color: 'red', backgroundColor: 'pink' }} />
       </button>
             </div>

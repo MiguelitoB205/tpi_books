@@ -3,6 +3,7 @@ import CategoriasContainer from "../Components/CategoriasContainer"
 import  ProductoList  from "../Components/ProductoList"
 import Footer from './Footer'
 import { useState } from "react"
+import { useParams } from "react-router-dom"
 
 
 
@@ -127,7 +128,10 @@ const Home = ()=>{
           ]
           
           const [favoritos, setFavoritos] = useState([]);
-         
+          const params = useParams()
+         const marcarFav = favoritos.filter(favorito=>favorito.id===Number(params.id))
+         localStorage.setItem('marcarFav', marcarFav)
+         localStorage.getItem('marcarFav')
       return (
         <>
         <Header />
@@ -146,24 +150,24 @@ const Home = ()=>{
           </div>
          
         
-            <h2 style={{ color: 'darkblue', fontSize: '45px', margin: '56px' }}>Tus libros favoritos</h2>
+            <h2 style={{ color: 'darkblue', fontSize: '45px', margin: '56px', textAlign: 'center' }}>Tus libros favoritos</h2>
           <div>
-            <ul style={{ display: 'grid', gridTemplateColumns: '33% 33% 33%' }}>
-              
-              {favoritos?.map(favorito => (
-                <ul style={{backgroundColor: 'lightblue', padding: '1px 20px 5px 50px' , margin: '30px', borderRadius: '25px'}} key={favorito.id}>
-                  <h1 style={{margin: '15px', color: 'darkblue'}}>{favorito.nombre}</h1>
-                  <p style={{justifyContent: 'center'}}><img src={favorito.imagen} alt="" width='150px' height='160px' /></p>
-                 
-                  <h3 style={{margin: '23px'}}><strong>{favorito.precio}</strong></h3>
-                  
-                 
-                  <ul>
-               
-                  </ul>
+            <ul style={{ display: 'flex',justifyContent:'center'}}>
+            {marcarFav ? (favoritos.map(favorito => (
+            <ul style={{backgroundColor: 'lightblue', padding: '1px 20px 5px 50px' , margin: '30px',
+             borderRadius: '25px'}} key={favorito.id}>
+              <h1 style={{marginBottom: '20px', paddingTop: '20px', color: 'darkblue'}}>{favorito.nombre}</h1>
+            <img src={favorito.imagen} alt="" width='150px' height='160px' />
              
-                </ul>
-              ))}
+              <h3 style={{margin: '23px'}}><strong>{favorito.precio}</strong></h3>
+              
+             
+              
+         
+            </ul>
+          ))): (
+            <h2 style={{textAlign: 'center', margin: '45px'}}>No tienes favoritos</h2>
+          )}
             </ul>
           </div>
           

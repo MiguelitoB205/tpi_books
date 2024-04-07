@@ -154,9 +154,8 @@ const CategoriaDetalle= () => {
     
   ])
   const [favoritos, setFavoritos] = useState([])
-
-  
-  
+  localStorage.setItem('favoritos', JSON.stringify(favoritos))
+  localStorage.getItem('favoritos')
   
   
   const params = useParams()
@@ -182,19 +181,18 @@ const CategoriaDetalle= () => {
           </div>
          
         
-            <h2 style={{ color: 'darkblue', fontSize: '45px', padding: '45px'}}>Tus libros favoritos</h2>
+            <h2 style={{ color: 'darkblue', fontSize: '45px', padding: '45px', textAlign: 'center'}}>Tus libros favoritos</h2>
           <div>
-            <ul style={{ display: 'grid', gridTemplateColumns: '33% 33% 33%' }}>
+            <ul style={{ display: 'flex', justifyContent: 'center' }}>
               
               {favoritos.map(favorito => (
-                <ul style={{backgroundColor: 'lightblue', margin: '30px', padding: '35px', borderRadius: '25px'}} key={favorito.id}>
-                  <h3>{favorito.nombre}</h3>
-                  <p><img src={favorito.imagen} alt="" width='150px' height='160px' /></p>
-                  <p><strong>Título: </strong>{favorito.titulo}</p>
-                  <p><strong>Autor: </strong>{favorito.autor}</p>
-                  <p><strong>Categoría: </strong>{favorito.categoria}</p>
-                  <p>{favorito.precio}</p>
-                  <p><strong>Descripción: </strong> {favorito.resena}</p>
+                <ul style={{backgroundColor: 'lightblue', margin: '30px', padding: '35px', borderRadius: '25px', 
+                }} key={favorito.id}>
+                  <h2 style={{marginBottom: '35px', color: 'darkblue'}}>{favorito.nombre}</h2>
+                  <img src={favorito.imagen} alt="" width='150px' height='160px' />
+               
+                  <h2 style={{margin: '23px'}}>{favorito.precio}</h2>
+                 
                  
                   <ul>
                
