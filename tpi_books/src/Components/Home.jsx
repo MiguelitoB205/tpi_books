@@ -141,7 +141,7 @@ const Home = ()=>{
         <h1 style={{ fontSize: '60px', color: 'darkblue' }}>Los libros más populares</h1>
         
        </div>
-        <div style={{display: 'grid', gridTemplateColumns: '33% 33% 33%', backgroundColor: 'violet'}}>
+        <div style={{display: 'grid', gridTemplateColumns: '50% 50%', backgroundColor: 'violet'}}>
 
         
         {libros.map(libro => (
